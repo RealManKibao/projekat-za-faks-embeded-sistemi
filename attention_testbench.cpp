@@ -38,7 +38,7 @@ SC_MODULE(Testbench) {
         uut.Y_ptr = &Y_data;
 
         wait(10, SC_NS);
-        std::cout << "Postavljam START signal." << std::endl;
+        std::cout << "Šaljem start signal..." << std::endl;
         start_sig.write(true);
 
         wait(done_sig.posedge_event());

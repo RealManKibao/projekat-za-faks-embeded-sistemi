@@ -20,10 +20,10 @@ SC_MODULE(MatrixMultiplier) {
         while (true) {
             do { wait(clk->posedge_event()); } while (start.read() == false);
 
-            std::cout << "@" << sc_time_stamp() << "START signal primljen. Počinjem množenje." << std::endl;
+            std::cout << "@" << sc_time_stamp() << "Krećem množenje..." << std::endl;
             
             if (!X_ptr || !W_ptr || !Y_ptr) {
-                std::cerr << "MatMul ulazni/izlazni podaci nisu postavljeni!" << std::endl;
+                std::cerr << "IO podaci nisu postavljeni!" << std::endl;
                 sc_stop(); return;
             }
 
@@ -47,7 +47,7 @@ SC_MODULE(MatrixMultiplier) {
                 }
             }
             
-            std::cout << "@" << sc_time_stamp() << "Množenje završeno. Postavljam DONE signal." << std::endl;
+            std::cout << "@" << sc_time_stamp() << "Množenje završeno." << std::endl;
             done.write(true);
 
             do {
